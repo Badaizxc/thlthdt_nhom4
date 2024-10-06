@@ -1,0 +1,53 @@
+package Tp;
+import java.util.ArrayList;
+import java.util.Scanner;
+public class bai6_tuan5 {
+	public static void main(String[] args) {
+        ArrayList<String> list = new ArrayList<>();
+        Scanner scanner = new Scanner(System.in);
+        
+        while (true) {
+            System.out.println("1. Them phan tu");
+            System.out.println("2. Xoa phan tu");
+            System.out.println("3. Hien thi danh sach");
+            System.out.println("4. Thoat");
+            System.out.print("Chon mot tuy chon: ");
+            int choice = scanner.nextInt();
+            scanner.nextLine(); 
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Nhap phan tu de them: ");
+                    String elementToAdd = scanner.nextLine();
+                    System.out.print("Nhap vi tri đe them (0 den " + list.size() + "): ");
+                    int addPosition = scanner.nextInt();
+                    if (addPosition >= 0 && addPosition <= list.size()) {
+                        list.add(addPosition, elementToAdd);
+                        System.out.println("Da them phan tu: " + elementToAdd);
+                    } else {
+                        System.out.println("Vi tri khong hop le.");
+                    }
+                    break;
+                case 2:
+                    System.out.print("Nhap vi tri của phan tu đe xoa (0 den " + (list.size() - 1) + "): ");
+                    int removePosition = scanner.nextInt();
+                    if (removePosition >= 0 && removePosition < list.size()) {
+                        String removedElement = list.remove(removePosition);
+                        System.out.println("Da xoa phan tu: " + removedElement);
+                    } else {
+                        System.out.println("Vi tri khong hop le.");
+                    }
+                    break;
+                case 3:
+                    System.out.println("Danh sach hien tai: " + list);
+                    break;
+                case 4:
+                    System.out.println("Thoat chuong trinh.");
+                    scanner.close();
+                    return;
+                default:
+                    System.out.println("Tuy chon khong hop le.");
+            }
+        }
+    }
+}
